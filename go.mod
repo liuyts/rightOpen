@@ -1,4 +1,4 @@
-module rightOpen
+module github.com/liuyts/rightOpen
 
 go 1.21
 
