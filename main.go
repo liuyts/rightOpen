@@ -16,6 +16,7 @@ func main() {
 	fmt.Println("1.右键文件")
 	fmt.Println("2.右键文件夹")
 	fmt.Println("3.右键文件夹背景")
+	fmt.Println("4.右键库文件夹背景")
 	fmt.Println("请输入编号")
 	fmt.Scanln(&option)
 	switch option {
@@ -25,6 +26,23 @@ func main() {
 		OpenDir()
 	case "3":
 		OpenBackground()
+	case "4":
+		OpenLibraryBackground()
+	}
+}
+
+func OpenLibraryBackground() {
+	var option string
+	fmt.Println("1.创建")
+	fmt.Println("2.删除")
+	fmt.Println("请输入编号")
+	fmt.Scanln(&option)
+	// HKEY_CLASSES_ROOT\LibraryFolder\background\shell
+	switch option {
+	case "1":
+		CreateOpenLibraryBackground()
+	case "2":
+		DeleteOpenLibraryBackground()
 	}
 }
 
@@ -40,6 +58,7 @@ func OpenFile() {
 	fmt.Println("2.删除")
 	fmt.Println("请输入编号")
 	fmt.Scanln(&option)
+	// HKEY_CLASSES_ROOT\*\shell
 	switch option {
 	case "1":
 		CreateOpenFile()
@@ -54,6 +73,7 @@ func OpenDir() {
 	fmt.Println("2.删除")
 	fmt.Println("请输入编号")
 	fmt.Scanln(&option)
+	// HKEY_CLASSES_ROOT\Directory\shell
 	switch option {
 	case "1":
 		CreateOpenDir()
@@ -68,6 +88,7 @@ func OpenBackground() {
 	fmt.Println("2.删除")
 	fmt.Println("请输入编号")
 	fmt.Scanln(&option)
+	// HKEY_CLASSES_ROOT\Directory\Background\shell
 	switch option {
 	case "1":
 		CreateOpenBackground()
